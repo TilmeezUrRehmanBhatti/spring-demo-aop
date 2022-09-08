@@ -435,3 +435,42 @@ _Match on method names (using wildcards)_
 ```JAVA
 @Before("execution(* processCreditCard())")
 ```
+
+
+***
+
+
+**Parameter Pattern Wildcards**
++ For param-patterm
+  + **()** - matches a method with no arguments
+  + **(\*)** - matches a method with one argument of any type
+  + **(..)** - matches a method with 0 or more arguments of any type
+
+
+**Pointcut Expression Examples**
+
+_Match on method ~~parameters~~_
+
++ Match **addAcount** methods with **no arguments**
+
+<img src="https://user-images.githubusercontent.com/80107049/189195392-68682e5a-1d12-4656-b8d3-b42bc1dab7a9.png" width=800/>
+
+
+_Match on method ~~parameters~~_
++ Match **addAcount** methods that have **Account** param
+
+<img src="https://user-images.githubusercontent.com/80107049/189186988-b98d049c-7907-4d0f-92c5-41fd7d178557.png" width=800 />
+
+_Match on method ~~parameters~~ (using wildcards)_
++ Match **addAccount** methods with **any number of arguments**
+
+<img src="https://user-images.githubusercontent.com/80107049/189186856-d4f8ba17-e244-416c-8f18-219c4be019f1.png" width=800 />
+
+
+
+_Match on methods in a ~~package~~_
+
++ Match any method in our DAO package:**com.tilmeez.aopdemo.dao**
+
+<img src="https://user-images.githubusercontent.com/80107049/189186420-4735bc37-78ee-497f-bde1-383a174b3a3d.png" width=800 />
+
