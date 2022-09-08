@@ -14,7 +14,7 @@ public class MyDemoLoggingAspect {
 
 //    @Before("execution(public void  add*())")
 //    @Before("execution(void  add*())")
-    @Before("execution(*  com.tilmeez.aopdemo.dao.*.*(..))")
+    @Before("execution(*  add*(com.tilmeez.aopdemo.Account))")
     public void beforeAddAccountAdvice() {
 
         System.out.println("\n====>>> Executing @Before advice on addAccount");
