@@ -373,3 +373,65 @@ _Step 4:Create an Aspect with @Before advice_
 
 
 ***
+
+**AOP Terminology**
++ **Pointcut:** A predicate expression for where advice should be applied
+
+**Pointcut Expression Language**
++ Spring AOP uses AspectJ's pointcut expression language
++ We will start with execution pointcuts
+    + Applies to execution of methods
+
+**Match on Method Name**
+
+```JAVA 
+execution(modifiers-pattern? return-type-pattern declaring-type-pattern?
+          method-name-pattern(param-pattern) throws-pattern?)
+```
+
++ `modifiers-pattern?` Modifiers:(Spring AOP only support public)
++ `return-type-pattern` Return type: void, boolean, String, `List<Customer>`, ...
++ `declaring-type-pattern?` Declaring type: the class name
++ `method-name-pattern(param-pattern)` Method name to match `param-pattern` Parameter types to match
++ `throws-pattern?` Exception types to match
+
+<br>
+
++ The pattern is optional if it has "?"
+
+
+**Pointcut Expresion Examples**
+
+_Match on method names in class_
++ Match only **addAccount()** method in **AccountDAO** class
+
+<img src="https://user-images.githubusercontent.com/80107049/189168249-3e6c044e-8d21-4331-9278-fce018a748e0.png" width=800/>
+
+_Match on methods names_
++ Match any **addAccount()** method in **any** class
+
+<img src="https://user-images.githubusercontent.com/80107049/189168176-bd67be15-5812-4045-bc57-13e0485e4988.png" width=800/>
+
+_Match on method names (using wildcards)_
++ Match methods **staring** with **add** in any class
+
+<img src="https://user-images.githubusercontent.com/80107049/189168093-cbc3a3c4-4883-493a-9dbf-f913107d101d.png" width=800/>
+
++ Match methods starting with **processCreditCard** in any class
+
+```JAVA
+@Before("execution(public VerificationResult processCreaditCard*())")
+```
++ Here return type is VerificationResult
+
++ Use wildcards on return type
+
+```JAVA
+@Before("execution(public * processCreditCard*())")
+```
+
++ Modifier is optional ... so don't have to list it
+
+```JAVA
+@Before("execution(* processCreditCard())")
+```
