@@ -20,7 +20,7 @@ public class MainDemoApp {
 
         // call the business method
         Account theAccount = new Account();
-        theAccountDAO.addAccount(theAccount);
+        theAccountDAO.addAccount(theAccount,true);
 
         // call the membership method
         theMembershipDAO.addAccount();
